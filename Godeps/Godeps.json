@@ -1,0 +1,25 @@
+{
+	"ImportPath": "github.com/jimeh/kotaku-uk-rss",
+	"GoVersion": "go1.3",
+	"Deps": [
+		{
+			"ImportPath": "code.google.com/p/cascadia",
+			"Comment": "null-30",
+			"Rev": "4f03c71bc42ba0015a68bea86422f0ecbb71bf70"
+		},
+		{
+			"ImportPath": "code.google.com/p/go.net/html",
+			"Comment": "null-144",
+			"Rev": "ad01a6fcc8a19d3a4478c836895ffe883bd2ceab"
+		},
+		{
+			"ImportPath": "github.com/PuerkitoBio/goquery",
+			"Comment": "v0.3.2-27-g1e5417b",
+			"Rev": "1e5417b3dbc2ca68de909fb56d9095daa680a166"
+		},
+		{
+			"ImportPath": "github.com/gorilla/feeds",
+			"Rev": "2e133eb352fab1ff3569ee169e9a3a94f69c9081"
+		}
+	]
+}
