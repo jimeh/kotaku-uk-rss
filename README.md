@@ -2,8 +2,8 @@
 
 So [Kotaku UK](http://www.kotaku.co.uk) does not have an RSS feed right
 now. And as I'm still teaching myself [Go](http://golang.org/), I figured it
-would be a fun small project to build a scraper that serves up an RSS feed for
-my personal use.
+would be a fun small project to hack together a small scraper that serves up
+an RSS feed for my personal use.
 
 ## Building/Running
 
