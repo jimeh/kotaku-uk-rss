@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 	"sort"
 	"sync"
 	"time"
@@ -175,7 +176,7 @@ func updateRssLoop() {
 		feed, _ := buildFeed(articles).ToRss()
 		rssCache.Set(feed)
 		fmt.Println("done")
-		fmt.Println("taking a 60 second nap ^_^")
+		fmt.Println("taking a nap for 60 seconds ^_^")
 		time.Sleep(60 * time.Second)
 	}
 }
@@ -201,5 +202,8 @@ var rssCache = RssCache{}
 func main() {
 	go updateRssLoop()
 	http.HandleFunc("/rss", serveRss)
-	http.ListenAndServe(":1234", nil)
+	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+	if err != nil {
+		panic(err)
+	}
 }
