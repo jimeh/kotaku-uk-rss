@@ -100,21 +100,38 @@ func parseArticleSection(section *goquery.Selection) Articles {
 
 func parseArticle(s *goquery.Selection) Article {
 	href, _ := s.Find(".media__body h2 a").Attr("href")
+	if href == "" {
+		href, _ = s.Find("figure a").Attr("href")
+	}
 	url := rootURL + href
+
+	summary := s.Find(".media__body p").Text()
+	title := s.Find(".media__body h2").Text()
+	if title == "" {
+		title = truncateString(summary, 60) + "..."
+	}
 
 	mediaURL, _ := s.Find("figure").Attr("data-media992")
 	timeString, _ := s.Find(".meta__limited time").Attr("datetime")
 	parsedTime, _ := time.Parse(time.RFC3339, timeString)
 
 	return Article{
-		Title:    s.Find(".media__body h2").Text(),
+		Title:    title,
 		Date:     parsedTime,
 		Author:   s.Find(".meta__full a.is-author").Text(),
-		Summary:  s.Find(".media__body p").Text(),
+		Summary:  summary,
 		MediaURL: mediaURL,
 		URL:      url,
 		Href:     href,
 	}
+}
+
+func truncateString(s string, l int) string {
+	end := len(s)
+	if end > l {
+		end = l
+	}
+	return s[:end]
 }
 
 func getArticlesFromUrl(url string) Articles {
