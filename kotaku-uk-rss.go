@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"sort"
 	"sync"
 	"time"
@@ -53,12 +52,14 @@ type RssCache struct {
 	body string
 }
 
+// Set allows setting the RssCache body.
 func (r *RssCache) Set(value string) {
 	r.Lock()
 	defer r.Unlock()
 	r.body = value
 }
 
+// Get allows getting the RssCache body.
 func (r *RssCache) Get() string {
 	r.RLock()
 	defer r.RUnlock()
@@ -134,7 +135,7 @@ func truncateString(s string, l int) string {
 	return s[:end]
 }
 
-func getArticlesFromUrl(url string) Articles {
+func getArticlesFromURL(url string) Articles {
 	doc := fetchDocument(url)
 	section := extractArticleSection(doc)
 	return parseArticleSection(section)
@@ -184,9 +185,7 @@ func updateRssLoop() {
 		articles := Articles{}
 		for _, url := range pageUrls {
 			fmt.Printf("fetching and parsing articles from: %s\n", url)
-			for _, article := range getArticlesFromUrl(url) {
-				articles = append(articles, article)
-			}
+			articles = append(articles, getArticlesFromURL(url)...)
 		}
 
 		fmt.Printf("building feed cache... ")
@@ -195,40 +194,5 @@ func updateRssLoop() {
 		fmt.Println("done")
 		fmt.Println("taking a nap for 60 seconds ^_^")
 		time.Sleep(60 * time.Second)
-	}
-}
-
-/*
-  Configuration
-*/
-
-var rootURL = "http://www.kotaku.co.uk"
-
-var pageUrls = []string{
-	rootURL + "/",
-	rootURL + "/page/2/",
-	rootURL + "/page/3/",
-}
-
-/*
-  Main...
-*/
-
-var rssCache = RssCache{}
-
-func main() {
-	port := "80"
-	if os.Getenv("PORT") != "" {
-		port = os.Getenv("PORT")
-	}
-
-	http.HandleFunc("/rss", serveRss)
-
-	go updateRssLoop()
-
-	fmt.Println("Listing on port " + port + "...")
-	err := http.ListenAndServe(":"+port, nil)
-	if err != nil {
-		panic(err)
 	}
 }
