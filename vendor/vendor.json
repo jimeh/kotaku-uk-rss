@@ -1,0 +1,37 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "OfHbisNes0gI+S16gYBreh7Riv8=",
+			"path": "github.com/PuerkitoBio/goquery",
+			"revision": "152b1a2c8f5d0340f658bb656032a39b94e52958",
+			"revisionTime": "2016-08-31T16:22:11Z"
+		},
+		{
+			"checksumSHA1": "0cyj4kaj9Q0e9S55BPIr2zBuwvo=",
+			"path": "github.com/andybalholm/cascadia",
+			"revision": "65919c611220063037b1db8eb334acaf17a6d8ea",
+			"revisionTime": "2016-10-18T13:42:59Z"
+		},
+		{
+			"checksumSHA1": "Biz2c0OxOX2qeMLc66oeHlsg4K8=",
+			"path": "github.com/gorilla/feeds",
+			"revision": "441264de03a8117ed530ae8e049d8f601a33a099",
+			"revisionTime": "2016-02-07T16:22:05Z"
+		},
+		{
+			"checksumSHA1": "vqc3a+oTUGX8PmD0TS+qQ7gmN8I=",
+			"path": "golang.org/x/net/html",
+			"revision": "6cdc0daab091c43fc46193327e0047b4f883c613",
+			"revisionTime": "2016-11-30T01:20:33Z"
+		},
+		{
+			"checksumSHA1": "00eQaGynDYrv3tL+C7l9xH0IDZg=",
+			"path": "golang.org/x/net/html/atom",
+			"revision": "6cdc0daab091c43fc46193327e0047b4f883c613",
+			"revisionTime": "2016-11-30T01:20:33Z"
+		}
+	],
+	"rootPath": "github.com/jimeh/kotaku-uk-rss"
+}

@@ -217,9 +217,17 @@ var pageUrls = []string{
 var rssCache = RssCache{}
 
 func main() {
-	go updateRssLoop()
+	port := "80"
+	if os.Getenv("PORT") != "" {
+		port = os.Getenv("PORT")
+	}
+
 	http.HandleFunc("/rss", serveRss)
-	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
+
+	go updateRssLoop()
+
+	fmt.Println("Listing on port " + port + "...")
+	err := http.ListenAndServe(":"+port, nil)
 	if err != nil {
 		panic(err)
 	}
