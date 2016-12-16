@@ -8,9 +8,15 @@ an RSS feed for my personal use.
 ## Building/Running
 
 ```
-go get github.com/kr/godep
-godep go build
-PORT=5000 ./kotaku-uk-rss
+git clone git@github.com:jimeh/kotaku-uk-rss.git
+make build
+bin/heroku-uk-rss --help
+```
+
+## Docker
+
+```
+docker run -d --name kotaku-uk-rss -p 8080:8080 jimeh/kotaku-uk-rss
 ```
 
 ## Deploying to Heroku
@@ -18,7 +24,7 @@ PORT=5000 ./kotaku-uk-rss
 ```
 git clone git@github.com:jimeh/kotaku-uk-rss.git
 cd kotaku-uk-rss
-heroku create -b https://github.com/kr/heroku-buildpack-go.git
+heroku create
 git push heroku master
 ```
 
