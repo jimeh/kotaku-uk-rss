@@ -1,0 +1,19 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+
+go:
+  - 1.7.4
+
+after_success:
+  - if ([ "$TRAVIS_BRANCH" == "master" ] || [ -n "$TRAVIS_TAG" ]) && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+    docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS;
+    export DOCKER_REPO=jimeh/kotaku-uk-rss;
+    export TAG="$(if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_TAG ; fi)";
+    make bin/kotaku-uk-rss_linux_amd64;
+    docker build -f Dockerfile -t $DOCKER_REPO:$TAG .;
+    docker push $DOCKER_REPO:$TAG;
+    fi
