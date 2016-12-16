@@ -1,1 +1,1 @@
-web: ./kotaku-uk-rss
+web: kotaku-uk-rss
