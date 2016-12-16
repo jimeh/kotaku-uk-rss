@@ -9,6 +9,24 @@
 			"revisionTime": "2016-08-31T16:22:11Z"
 		},
 		{
+			"checksumSHA1": "KmjnydoAbofMieIWm+it5OWERaM=",
+			"path": "github.com/alecthomas/template",
+			"revision": "a0175ee3bccc567396460bf5acd36800cb10c49c",
+			"revisionTime": "2016-04-05T07:15:01Z"
+		},
+		{
+			"checksumSHA1": "3wt0pTXXeS+S93unwhGoLIyGX/Q=",
+			"path": "github.com/alecthomas/template/parse",
+			"revision": "a0175ee3bccc567396460bf5acd36800cb10c49c",
+			"revisionTime": "2016-04-05T07:15:01Z"
+		},
+		{
+			"checksumSHA1": "fCc3grA7vIxfBru7R3SqjcW+oLI=",
+			"path": "github.com/alecthomas/units",
+			"revision": "2efee857e7cfd4f3d0138cc3cbb1b4966962b93a",
+			"revisionTime": "2015-10-22T06:55:26Z"
+		},
+		{
 			"checksumSHA1": "0cyj4kaj9Q0e9S55BPIr2zBuwvo=",
 			"path": "github.com/andybalholm/cascadia",
 			"revision": "65919c611220063037b1db8eb334acaf17a6d8ea",
@@ -31,6 +49,12 @@
 			"path": "golang.org/x/net/html/atom",
 			"revision": "6cdc0daab091c43fc46193327e0047b4f883c613",
 			"revisionTime": "2016-11-30T01:20:33Z"
+		},
+		{
+			"checksumSHA1": "SeYI7DRWrd0Ku+CLavuwIz3EEmQ=",
+			"path": "gopkg.in/alecthomas/kingpin.v2",
+			"revision": "e9044be3ab2a8e11d4e1f418d12f0790d57e8d70",
+			"revisionTime": "2016-08-29T10:30:05Z"
 		}
 	],
 	"rootPath": "github.com/jimeh/kotaku-uk-rss"
