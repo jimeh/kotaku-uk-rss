@@ -44,6 +44,10 @@ func printVersion() {
 	fmt.Println("kotaku-uk-rss " + Version)
 }
 
+func serveRoot(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "OK")
+}
+
 func startServer() {
 	if *port == defaultPort {
 		if envPort := os.Getenv("PORT"); envPort != "" {
@@ -51,6 +55,7 @@ func startServer() {
 		}
 	}
 
+	http.HandleFunc("/", serveRoot)
 	http.HandleFunc("/rss", serveRss)
 
 	address := *bind + ":" + *port
